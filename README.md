@@ -1,6 +1,6 @@
 # Extreme TicTacToe Tournament
 #### **Implementation**:
-* It is implemented using minimax algorithm and Alpha-Beta pruning and a heuristic 
+* It is implemented using minimax algorithm and Alpha-Beta pruning and a heuristic
 #### **The Game**
 * The Extreme TicTacToe is an extension of 4x4 TicTacToe which in
 turn is an extension of standard 3x3 TicTacToe. Extreme TicTacToe
@@ -44,7 +44,7 @@ whole game.
 
 ####  **Winning Combinations**:
 
-![Winning Combinations](./images/win.png)
+    ![Winning Combinations](./images/win.png)
 
 
 #### **Scoring:**
@@ -59,4 +59,4 @@ gets points according to the SmallBoards won. Each SmallBoard
 has different score as shown below. Smallboards which are
 drawn do not count as points for either player.
 
-![score pattern](./images/score.png)
+            ![score pattern](./images/score.png)
