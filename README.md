@@ -44,7 +44,7 @@ whole game.
 
 ####  **Winning Combinations**:
 
-    ![Winning Combinations](./images/win.png)
+![Winning Combinations](./images/win.png)
 
 
 #### **Scoring:**
@@ -59,4 +59,4 @@ gets points according to the SmallBoards won. Each SmallBoard
 has different score as shown below. Smallboards which are
 drawn do not count as points for either player.
 
-            ![score pattern](./images/score.png)
+![score pattern](./images/score.png)
