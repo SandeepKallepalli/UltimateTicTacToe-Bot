@@ -4,6 +4,14 @@ import signal
 import time
 import copy
 import traceback
+from team62 import Team62
+from team56 import Team56
+from hello import Hello
+from tenderfoot import Tenderfoot
+#from Team62 import Team62
+from team17 import Player17
+from tp import Player40
+#from team78_mod import Player78_mod as Player17
 
 TIME = 16
 MAX_PTS = 68
@@ -31,6 +39,7 @@ class Manual_Player:
 	def move(self, board, old_move, flag):
 		print 'Enter your move: <format:row column> (you\'re playing with', flag + ")"
 		print(board.find_valid_move_cells(old_move))
+		print(type(flag))
 		mvp = raw_input()
 		mvp = mvp.split()
 		print(int(mvp[0]),int(mvp[1]))
@@ -187,8 +196,8 @@ class Board:
 		return 'SUCCESSFUL', False
 
 def player_turn(game_board, old_move, obj, ply, opp, flg):
-		temp_board_status = copy.deepcopy(game_board.board_status)
-		temp_block_status = copy.deepcopy(game_board.block_status)
+		Team_board_status = copy.deepcopy(game_board.board_status)
+		Team_block_status = copy.deepcopy(game_board.block_status)
 		signal.alarm(TIME)
 		WINNER = ''
 		MESSAGE = ''
@@ -213,7 +222,7 @@ def player_turn(game_board, old_move, obj, ply, opp, flg):
 		signal.alarm(0)
 
 		#check if board is not modified and move returned is valid
-		if (game_board.block_status != temp_block_status) or (game_board.board_status != temp_board_status):
+		if (game_board.block_status != Team_block_status) or (game_board.board_status != Team_board_status):
 			WINNER = opp
 			MESSAGE = 'MODIFIED THE BOARD'
 			pts[opp] = MAX_PTS
@@ -351,6 +360,7 @@ if __name__ == '__main__':
 		print '<option> can be 1 => Random player vs. Random player'
 		print '                2 => Human vs. Random Player'
 		print '                3 => Human vs. Human'
+		print '                4 => Random vs. Player62'
 		sys.exit(1)
 
 	obj1 = ''
@@ -362,14 +372,32 @@ if __name__ == '__main__':
 
 	elif option == '2':
 		obj1 = Random_Player()
-		obj2 = Manual_Player()
+		obj2 = Team62()
 	elif option == '3':
 		obj1 = Manual_Player()
 		obj2 = Manual_Player()
+	elif option == '4':
+		obj1 = Team62()
+		obj2 = Team56()
+	elif option == '5':
+		obj1 = Team56()
+		obj2 = Team62()
+	elif option == '6':
+		obj1 = Player17()
+		obj2 = Team62()
+	elif option == '7':
+		obj1 = Team62()
+		obj2 = Player17()
+	elif option == '8':
+		obj1 = Tenderfoot()
+		obj2 = Team62()
+	elif option == '9':
+		obj1 = Team62()
+		obj2 = Tenderfoot()
 	else:
 		print 'Invalid option'
 		sys.exit(1)
 
 	x = gameplay(obj1, obj2)
-	print "Player 1 points:", x[0]
-	print "Player 2 points:", x[1]
+	print "Player 1 points:", obj1,x[0]
+	print "Player 2 points:", obj2,x[1]
